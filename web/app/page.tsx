@@ -510,8 +510,11 @@ function FsmaSection() {
 // ══════════════════════════════════════════════════════════════════════════
 const PLANS = [
   {
-    name: 'Entry', price: '$799', period: '/month',
-    suppliers: 'Up to 25 supplier accounts', primary: false, tag: null,
+    name: 'Entry',
+    tagline: 'For retailers getting started with traceability.',
+    suppliers: 'Up to 25 supplier accounts',
+    primary: false,
+    tag: null,
     features: [
       'Supplier mobile web portal (offline-first)',
       'Live lot dashboard with green/amber/red status',
@@ -523,8 +526,11 @@ const PLANS = [
     ],
   },
   {
-    name: 'Growth', price: '$1,999', period: '/month',
-    suppliers: 'Up to 100 supplier accounts', primary: true, tag: 'Most popular',
+    name: 'Growth',
+    tagline: 'For retailers scaling across multiple stores and supplier networks.',
+    suppliers: 'Up to 100 supplier accounts',
+    primary: true,
+    tag: 'Most popular',
     features: [
       'Everything in Entry',
       'Volume pricing for multi-store networks',
@@ -543,8 +549,11 @@ function Pricing() {
       <div className="max-w-5xl mx-auto">
         <FadeUp className="text-center mb-14">
           <p className="text-[11px] font-black uppercase tracking-widest text-[#1A6B3C] mb-3">Pricing</p>
-          <h2 className="text-4xl font-black text-[#0D4A28] mb-3">Flat monthly pricing.<br />No surprises.</h2>
-          <p className="text-gray-500 text-sm">No per-SKU, per-scan, or per-QR-view charges. All features included from day one.</p>
+          <h2 className="text-4xl font-black text-[#0D4A28] mb-3">Simple tiers.<br />Priced for your scale.</h2>
+          <p className="text-gray-500 text-sm max-w-md mx-auto">
+            No per-SKU, per-scan, or per-QR-view charges. All features included from day one.
+            Contact us for pricing — we work with each retailer directly.
+          </p>
         </FadeUp>
         <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
           {PLANS.map((plan, i) => (
@@ -556,11 +565,12 @@ function Pricing() {
                     {plan.tag}
                   </span>
                 )}
-                <p className={`text-[11px] font-black uppercase tracking-widest mb-2 ${plan.primary ? 'text-green-300' : 'text-[#1A6B3C]'}`}>{plan.name}</p>
-                <div className="flex items-end gap-1 mb-1">
-                  <span className={`text-5xl font-black ${plan.primary ? 'text-white' : 'text-[#0D4A28]'}`}>{plan.price}</span>
-                  <span className={`text-sm mb-2 ${plan.primary ? 'text-green-300' : 'text-gray-400'}`}>{plan.period}</span>
-                </div>
+                <p className={`text-[11px] font-black uppercase tracking-widest mb-2 ${plan.primary ? 'text-green-300' : 'text-[#1A6B3C]'}`}>
+                  {plan.name}
+                </p>
+                <p className={`text-sm leading-snug mb-2 font-medium ${plan.primary ? 'text-white' : 'text-[#0D4A28]'}`}>
+                  {plan.tagline}
+                </p>
                 <p className={`text-xs mb-6 ${plan.primary ? 'text-green-300' : 'text-gray-400'}`}>{plan.suppliers}</p>
                 <ul className="space-y-2.5 mb-8 flex-1">
                   {plan.features.map((f, j) => (
@@ -574,10 +584,12 @@ function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <a href="#access"
+                <a href="mailto:hello@rootline.io"
                   className={`block py-3.5 rounded-full font-bold text-sm text-center transition-colors ${
-                    plan.primary ? 'bg-white text-[#0D4A28] hover:bg-green-100' : 'bg-[#1A6B3C] text-white hover:bg-[#0D4A28]'}`}>
-                  Request Early Access →
+                    plan.primary
+                      ? 'bg-white text-[#0D4A28] hover:bg-green-100'
+                      : 'bg-[#1A6B3C] text-white hover:bg-[#0D4A28]'}`}>
+                  Contact us for pricing →
                 </a>
               </div>
             </FadeUp>
